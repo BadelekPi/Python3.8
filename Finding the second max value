@@ -1,0 +1,17 @@
+n=int(input())
+arr = list(map(int, input().split()))
+
+mx=max(arr[0],arr[1])
+secondmx=min(arr[0],arr[1])
+
+for i in range(2,n):
+    if arr[i]>mx:
+        secondmx=mx
+        mx=arr[i]
+    elif arr[i]>secondmx and mx != arr[i]:
+        secondmx=arr[i]
+    else:
+        if secondmx == mx:
+            secondmx = arr[i]
+
+print(secondmx)
