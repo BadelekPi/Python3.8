@@ -1,0 +1,23 @@
+'''
+String length
+'''
+message = 'Hello'
+print(len(message))
+
+'''
+Replacing words
+'''
+new_message = message.replace('Hello','Universe')
+print(new_message)
+
+'''
+Adding words to printing line
+'''
+second_message = '{},{}'.format(message,new_message)
+print(second_message)
+
+'''
+F-string example
+'''
+third_message = f'{message},{new_message.upper()}.'
+print(third_message)
