@@ -1,0 +1,105 @@
+'''example of using list'''
+from typing import List
+
+courses = ['History','Math','Physics','CompSci']
+print(len(courses))
+
+print(courses[0:4])
+
+'''print last item in list'''
+print(courses[-1])
+
+'''printing all of elements'''
+print(courses[::])
+
+'''append item to the list'''
+courses.append('Art')
+print(courses[::])
+
+'''insert an element to the beggining list in chosen position'''
+courses.insert(0,'Art')
+print(courses[::])
+
+courses_2 = ['Art','Education']
+'''ading list to existing another list (like extra list)'''
+courses.insert(0, courses_2)
+print(courses)
+
+'''add elements from one list to another (like each individual items)'''
+courses.extend(courses_2)
+print(courses)
+
+'''remove chosen elements'''
+courses.remove('Math')
+print(courses)
+
+'''remove our last value of our list'''
+popped = courses.pop()
+print(courses)
+
+'''returns the value that it removed'''
+print(popped)
+
+'''sort our list'''
+'''reverse method (switching sequence)'''
+courses.reverse()
+print(courses)
+
+'''sort our list in alphabetical'''
+courses_3 = ['English','Spanish','German']
+courses_3.sort()
+print(courses_3)
+
+'''sort those in ascending (rosnąco) order'''
+nums = [1, 5, 2, 4, 3]
+nums.sort()
+print(nums)
+
+'''sort values in descending (malejąco) order'''
+nums.sort(reverse = True)
+print(nums)
+
+'''max or min values'''
+print(min(nums))
+print(max(nums))
+
+'''finding index in list'''
+print(courses.index('CompSci'))
+
+'''checking if element is in the current list'''
+print('CompSci' in courses)
+
+'''printing all of elements in the list by using loop block of code'''
+for item in courses:
+    print(item)
+
+'''printing index of value by using enumerate function and starting numerate from 1'''
+for index,course in enumerate(courses, start = 1):
+    print(index, course)
+
+'''separated into a string of comma separated values'''
+courses_4 = ['biolka','przyrka','majma']
+courses_4_str = ', '.join(courses_4)
+print(courses_4_str)
+
+'''back to the original list'''
+new_list = courses_4_str.split(',')
+print(new_list)
+
+'''we can't modify TUPLES ! Tuples are immutable'''
+
+'''Sets are values that are unordered and also have no duplicates'''
+'''it can change with each execution'''
+cs_courses = {'History', 'Math','Physics','CompSci','Math'}
+print(cs_courses)
+
+'''searching the same values between two sets'''
+art_courses={'Math','History','Biology'}
+print(cs_courses.intersection(art_courses))
+
+'''print all unique elements from two sets'''
+print(cs_courses.union(art_courses))
+
+empty_list = []
+empty_tuple = ()
+empty_set = set()
