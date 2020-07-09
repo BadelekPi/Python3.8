@@ -1,0 +1,38 @@
+'''define type'''
+num = 3
+print(type(num))
+
+'''entire value'''
+print(3 // 2)
+
+'''print 3 to the second power'''
+print(3 ** 2)
+
+'''modulus'''
+print(3 % 2)
+
+'''increment value of int'''
+num = 1
+num += 1
+print(num)
+
+'''absolute value'''
+print(abs(-1))
+
+'''round our values to the nearest integer value'''
+print(round(-1.75))
+
+'''round to the first digit after the decimal'''
+print(round(-1.75, 1))
+
+'''checking two values if are equal (false)'''
+num1 = 5
+num2 = 3
+print(num1 == num2)
+
+'''cast values from string to integers'''
+num_1='100'
+num_2='200'
+num_1=int(num_1)
+num_2=int(num_2)
+print(num_1 + num_2)
