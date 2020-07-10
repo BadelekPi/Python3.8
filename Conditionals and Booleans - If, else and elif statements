@@ -1,0 +1,23 @@
+'''example of using if, elseif, else'''
+language = 'Python'
+if language == 'Python':
+    print('Good')
+elif language =='Java':
+    print('False')
+else:
+    print('Meh')
+
+'''using booleans operators'''
+user = 'Admin'
+logged_in = True
+if user == 'Admin' and logged_in: #or, not
+    print('Admin page')
+else:
+    print('Bad Creds')
+
+'''two integers with function is, aren't equals'''
+a = [1, 2, 3]
+b= [1, 2, 3]
+print(a is b) #a and b have different memory address
+print(id(a))
+print(id(b))
