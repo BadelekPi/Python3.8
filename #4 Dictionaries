@@ -1,0 +1,40 @@
+'''example of using simple dictionary'''
+student = {'name': 'John','age': 25,'courses': ['Math','CompSci']}
+print(student['name'])
+
+'''get the name since we know that the key already exist in dictionary'''
+print(student.get('name'))
+
+'''print expression when item doesn't exist in the dictionary'''
+print(student.get('phone','Not found'))
+
+'''add new entry to our dictionary'''
+student['phone']= '555-5555'
+print(student)
+
+'''overwrite chosen entry'''
+student['name'] = 'Jane'
+print(student)
+
+'''update multiple values at a time'''
+student.update({'name':'Jan','age': 26,'phone':'123-4321'})
+print(student)
+
+'''delete a specific key'''
+del student['age']
+print(student)
+
+'''different method to delete a specific key, like a list method'''
+phone = student.pop('phone')
+print(student)
+print(phone)
+
+'''check how many keys we have in our dictionary'''
+print(len(student))
+
+'''print all of these keys'''
+print(student.values())
+
+'''pair of two values using loop method'''
+for key, value in student.items():
+    print(key, value)
