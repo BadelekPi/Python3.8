@@ -1,0 +1,30 @@
+'''simple function '''
+def hello_func():
+    pass
+
+print(hello_func())
+
+'''example with return structure'''
+def hello():
+    return 'Hello'
+
+print(hello())
+
+'''string with argument, execute the function'''
+def argu_func(greeting, name = 'You'):
+    return '{}, {} function.'.format(name, greeting)
+
+print(argu_func('dupa', name = 'Pioter'))
+
+'''args is actually a tuple with all of our positional arguments, kwargs are a dictionary with all of our keyword values'''
+def student_info(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+student_info('Math','Art', name='John', age=22)
+
+'''creating a list to unpack these values and pass them in individually'''
+
+courses = ['Math','Art']
+info = {'name': 'John', 'age': 22}
+student_info(*courses,**info)
