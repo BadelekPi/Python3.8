@@ -1,0 +1,58 @@
+#import type 1
+import funkcje as ff
+courses = ['History', 'Math', 'Physics','CompSci']
+index = ff.find_index(courses, 'CompSci')
+print(index)
+
+#import type 2
+from funkcje import find_index, test
+courses = ['History', 'Math', 'Physics','CompSci']
+index = find_index(courses, 'Math')
+print(index)
+print(test)
+
+'''import everything from module using star * index'''
+'''command which searching current location of the file'''
+import sys
+from funkcje import *
+courses = ['History', 'Math', 'Physics','CompSci']
+index = find_index(courses, 'Math')
+print(index)
+print(test)
+print(sys.path)
+
+'''import module from a completely different location on our machine'''
+#import sys
+#sys.path.append('Users/coreyschafer/Desktop/My-Modules')
+
+'''import random module from standard library'''
+import random
+courses = ['History', 'Math', 'Physics','CompSci']
+random_course = random.choice(courses)
+print(random_course)
+
+'''import module to perform some common mathematical operations'''
+import math
+courses = ['History', 'Math', 'Physics','CompSci']
+rads = math.radians(90)
+print(rads)
+#printing sinus of the 90 radians
+#print(math.sin(rads))
+
+'''include module which allows us to work with dates and times'''
+'''today date'''
+import datetime
+import calendar
+today = datetime.date.today()
+print(today)
+
+'''Does current year is leap?'''
+print(calendar.isleap(2020))
+
+'''Module which gives access to the underlying operating system'''
+'''printing out the current working directory where this script is located'''
+import os
+print(os.getcwd())
+
+'''printing out of the file on our filesystem'''
+print(os.__file__)
