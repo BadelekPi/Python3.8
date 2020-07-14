@@ -1,0 +1,44 @@
+#LEGB - Local Enclosing Global Built-in
+
+x = 'global x'
+
+def test():
+    y = 'local y'
+    print(y)
+
+test()
+
+def test2():
+    '''global scope'''
+    print(x)
+
+test2()
+
+'''Y variable like a local scope doesn't live outside of test function'''
+
+'''print out the local scope'''
+def test3(z):
+    print(z)
+
+test3('local z')
+
+'''finding the smallest value of the vector'''
+m = min([5, 1, 4, 2, 3])
+print(m)
+
+'''view the variables that are within the built-in scope'''
+import builtins
+print(dir(builtins))
+
+'''Set local X variable and inner function  '''
+def outer():
+    x = 'outer x'
+
+    def inner():
+        x = 'inner x'
+        print(x)
+
+    inner()
+    print(x)
+
+outer()
