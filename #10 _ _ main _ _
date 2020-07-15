@@ -1,0 +1,19 @@
+'''whenever python runs a file at first goes through before it even runs any code it sets a few special variables'''
+'''name is one of these special variables'''
+
+a="First Module's Name: {}".format(__name__)
+print(a)
+
+'''check if double underscore name is equal to main'''
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+
+'''check if our file is run directly or run from import'''
+if __name__ == '__main__':
+    print('Run directly')
+else:
+    print('Run from import')
