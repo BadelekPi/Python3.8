@@ -1,0 +1,12 @@
+def collatz(number):
+    if (number % 2) == 0:
+        numb = number // 2
+        return numb
+    else:
+        numb = 3*number+1
+        return numb
+
+numb = int(input())
+while numb != 1:
+   numb = collatz(numb)
+   print(numb)
