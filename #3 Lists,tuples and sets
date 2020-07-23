@@ -69,6 +69,11 @@ print(courses.index('CompSci'))
 '''checking if element is in the current list'''
 print('CompSci' in courses)
 
+'''refering two lists to different addresses'''
+import copy
+spam = ['A','B','C','D']
+cheese = copy.copy(spam)
+
 '''printing all of elements in the list by using loop block of code'''
 for item in courses:
     print(item)
