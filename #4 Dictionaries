@@ -38,3 +38,8 @@ print(student.values())
 '''pair of two values using loop method'''
 for key, value in student.items():
     print(key, value)
+    
+'''returning list of keys'''
+spam = {'color': 'czerwony', 'age': 42}
+spam.keys()
+list(spam.keys())
