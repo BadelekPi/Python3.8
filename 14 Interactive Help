@@ -1,0 +1,14 @@
+dir() #Short for directory
+dir(__builtins__)
+#displat the help documentation for the pow function
+help(pow)
+
+#hexadecimal representation of an integer or long integer
+hex(10)
+
+#module as a folder that contains other python objects
+help('modules')
+dir(math)
+help(math.radians)
+
+ 
