@@ -1,0 +1,23 @@
+'''example of using lambda expression'''
+g = lambda x: 3*x+1
+g(2)
+
+'''combine first and last name into a singlem, first letter is upper, like titles'''
+full_name = lambda fn, ln: fn.strip().title() + '' +ln.strip().title()
+full_name("Leonard", "Euler")
+
+'''sorting author's last names'''
+scifi_authors = ["Isaac Asimov", "Ray Bradbury", "Douglas Adams"]
+help(scifi_authors.sort)
+scifi_authors.sort(key=lambda name: name.split(" ")[-1].lower())
+print(scifi_authors)
+
+'''function that makes functions'''
+def build_quadratic_function(a,b,c):
+ '''Returns the function f(x) = ax^2 +bx + c'''
+   return lambda x: a*x**2+ b*x + c
+   
+f = build_quadratic_function(2, 3, -5)
+f(0)
+build_quadratic_function(3, 0, 1)(2)  #3x^2+1 evaluated for x=2
+
