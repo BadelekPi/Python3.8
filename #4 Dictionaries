@@ -47,3 +47,13 @@ list(spam.keys())
 '''checking if item is in the dictionary'''
 spam = {'color': 'czerwony', 'age': 42}
 'color' in spam.keys()
+
+'''attribution value to the non-existent key'''
+spam = {'color': 'czerwony', 'age': 42}
+spam.setdefault('name','Mary')
+
+'''more elegant of printing dictionary'''
+import pprint
+pprint.pprint(dictionary)
+
+
