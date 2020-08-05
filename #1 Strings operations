@@ -1,3 +1,16 @@
+'''Control signs'''
+\' -> apostrophe
+\" -> quotation mark
+\t -> tabulator
+\n -> new row
+\\ -> slash
+
+'''multi-rows text structure'''
+print('''Witam serdecznie
+Moje nazwisko Badełek
+Pozdrawiam,
+Piotr''')
+
 '''
 String length
 '''
