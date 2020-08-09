@@ -16,4 +16,8 @@ def isPhoneNumber(text):
             return False
     return True
 
-print(isPhoneNumber('723-431-250'))
+message = 'Numer telefonu to 723-123-2500'
+for i in range(len(message)):
+    chunk = message[i:i+12]
+    if isPhoneNumber(chunk):
+        print('Znaleziono numer telefonu: '+ chunk)
