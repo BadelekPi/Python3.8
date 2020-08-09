@@ -1,3 +1,5 @@
+import re
+
 def isPhoneNumber(text):
     if len(text) != 12:
         return False
@@ -16,8 +18,60 @@ def isPhoneNumber(text):
             return False
     return True
 
+
+
 message = 'Numer telefonu to 723-123-2500'
 for i in range(len(message)):
     chunk = message[i:i+12]
     if isPhoneNumber(chunk):
         print('Znaleziono numer telefonu: '+ chunk)
+
+
+#2 Regular objects methods using 'Re' library, search and group method
+#\d mean number between 0-9 values
+phoneNumberRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+mo = phoneNumberRegex.search('Moj numer to 415-555-1234')
+#group function for return current object
+print('Znaleziono numer '+mo.group())
+
+#tester for regular verbs on regexpal.com
+
+#group expressions using brackets
+bracketsRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
+bo = bracketsRegex.search('The telephone number: 123-123-1234')
+print(bo.group(1))
+
+#return all of these groups
+print(bo.group())
+
+#match objects using flow method
+
+heroRegex = re.compile(r'Batman|Tina Fey')
+mo1 = heroRegex.search('Batman i Tina Fey...')
+print(mo1.group())
+
+#optional template
+batRegex = re.compile(r'Bat(wo)?man')
+mo1 = batRegex.search('The Adventures of Batman')
+print(mo1.group())
+mo2 = batRegex.search('The Adventures of Batwoman')
+print(mo2.group())
+
+#finding optional number with/without regional code
+
+phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
+mo1 = phoneRegex.search('Moj numer to 415-555-1234')
+print(mo1.group())
+mo2 = phoneRegex.search('Moj numer to 555-1234')
+print(mo2.group())
+
+#finding optional templates occuring any times
+
+batRegex = re.compile(r'Bat(wo)*man')
+mo1 = batRegex.search('The adventures of Batwowowoman')
+print(mo1.group())
+
+#return list of all of current templates
+
+phoneRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+print(phoneRegex.findall('Tel kom: 123-123-1234m praca: 321-321-4321'))
