@@ -75,3 +75,15 @@ print(mo1.group())
 
 phoneRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
 print(phoneRegex.findall('Tel kom: 123-123-1234m praca: 321-321-4321'))
+
+
+#finding any templates using own patterns
+
+vovelRegex = re.compile(r'[aeiouAEIOU]')
+vovelRegex.findall('Znajdz samogloski w podanym zdaniu')
+
+#find all of opposed elements
+
+vovelRegex = re.compile(r'[^aeiouAEIOU]')
+vovelRegex.findall('Znajdz wszystko oprócz samoglosek w podanym zdaniu')
+
