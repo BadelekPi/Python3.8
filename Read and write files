@@ -1,0 +1,83 @@
+#access path working both win, os and linux
+import os
+os.path.join('usr','bin','spam')
+
+#generate access paths for names of files
+myFiles = ['konta.txt','informacje.cvs','zaproszenie.docx']
+for filename in myFiles:
+    print(os.path.join('C:\\Użytkownicy\\Robert', filename))
+
+#name of the cwd - current working directory
+import os
+os.getcwd()
+
+#changing current working directory
+#os.chdir('C:\\Windows\\System32')
+os.getcwd()
+
+#creating new catalogs
+import os
+#makedirs('C:\\delicious\\walnut\\waffles')
+
+#Handling ruthless and relative access paths
+
+#Ruthless access paths:
+print(os.path.abspath('.'))
+
+os.path.abspath('.\\Scripts')
+
+#Relative access paths:
+os.path.isabs('.')
+
+os.path.isabs(os.path.abspath('.'))
+
+#Return text string starting from beginning element:
+#os.path.relpath(ścieżka, początek)
+import os
+print(os.path.relpath('C:\\Windows', 'C:\\'))
+
+#showing base name
+import os
+path = 'C:\\Windows\\System32\\calc.exe'
+print(os.path.basename(path))
+
+#showing catalog name:
+import os
+print(os.path.dirname(path))
+
+#showing boths names in tuple:
+import os
+print(os.path.split(path))
+#return in table:
+print(path.split(os.path.sep))
+
+#return size of specific file (in bytes)
+import os
+print(os.path.getsize('C:\\Windows\\System32'))
+
+#list of text strings in current location with path argument
+import os
+os.listdir('C:\\Windows\\System32')
+
+#size of the whole system32 catalog
+import os
+totalSize = 0
+for filename in os.listdir('C:\\Windows\\System32'):
+    totalSize = totalSize + os.path.getsize(os.path.join('C:\\Windows\\System32', filename))
+print(totalSize)
+
+#checking if file is exist:
+import os
+os.path.exists('C:\\Windows')
+
+#checking if access path to the catalog is correct:
+import os
+os.path.isdir('C:\\Windows\\System32\\calc.exe')
+
+#checking if access path to the file is correct:
+import os
+os.path.isfile('C:\\Windows\\System32')
+
+#checking if pendrive is connect with computer
+import os
+os.path.exists('D:\\')
