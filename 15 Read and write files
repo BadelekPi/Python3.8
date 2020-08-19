@@ -81,3 +81,7 @@ os.path.isfile('C:\\Windows\\System32')
 #checking if pendrive is connect with computer
 import os
 os.path.exists('D:\\')
+
+#opening the specific file
+
+hellofile = open('C:\\Users\\piotr\\Desktop\\test.txt')
