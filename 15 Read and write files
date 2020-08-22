@@ -85,3 +85,39 @@ os.path.exists('D:\\')
 #opening the specific file
 
 hellofile = open('C:\\Users\\piotr\\Desktop\\test.txt')
+
+#reading text string from the opening file (.txt)
+print(hellofile.read())
+#reading in text string form
+TestFile = open('C:\\Users\\piotr\\Desktop\\test.txt')
+print(TestFile.readlines())
+
+#open a file in save mode
+baconFile = open('bacon.txt','w')
+baconFile.write('Witaj swiecie\n')
+baconFile.close()
+#adding text to exist text in file
+baconFile = open('bacon.txt','a')
+baconFile.write('Bacon nie jest warzywem')
+baconFile.close()
+#opening file in write mode
+baconFile = open('bacon.txt')
+content = baconFile.read()
+baconFile.close()
+print(content)
+
+#overwritting dates in file with Shelf module
+import shelve
+shelfFile = shelve.open('mydata')
+cats = ['Zophie', 'Pooka', 'Simon']
+shelfFile['cats'] = cats
+shelfFile.close()
+
+#saving texts in more elegant form, changing to text string
+import pprint
+cats = [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]
+pprint.pformat(cats)
+file0bj = open('myCats.py','w')
+file0bj.write('cats = ' + pprint.pformat(cats) + '\n')
+file0bj.close()
+#we can import this text string like a normal scripts
