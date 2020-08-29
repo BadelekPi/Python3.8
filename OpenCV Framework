@@ -1,0 +1,40 @@
+#import and open an image
+
+import cv2
+print("Package Imported")
+
+img = cv2.imread("Resources/Lena.png")
+
+cv2.imshow("Output", img)
+cv2.waitKey(0)
+
+#import and open video (ending if q is pressed)
+
+import cv2
+
+cap = cv2.VideoCapture("Resources/video.mp4")
+
+while True:
+    success, img = cap.read()
+    cv2.imshow("Video", img)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+        
+#open a video from webcam
+
+import cv2
+
+cap = cv2.VideoCapture(0)
+#width size
+cap.set(3,640)
+#hight size
+cap.set(4,480)
+#changing the brightness
+cap.set(10,100)
+while True:
+    success, img = cap.read()
+    cv2.imshow("Video", img)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+        
+        
