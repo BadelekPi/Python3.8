@@ -61,3 +61,22 @@ cv2.imshow("Dialation Image", imgDialation)
 cv2.imshow("Dialation Image", imgEroded)
 cv2.waitKey(0)
 
+
+
+#resize images and corners
+
+import cv2
+import numpy as np
+
+img = cv2.imread("Resources/Jula.jpg")
+#show height, width and number of channel RGB
+print(img.shape)
+#resize the image
+imgResize = cv2.resize(img, (300,200))
+imgCropped = img[0:200,200:500]
+cv2.imshow("Image",img)
+cv2.imshow("Image Resize",imgResize)
+cv2.imshow("Image Cropped",imgCropped)
+
+
+cv2.waitKey(0)
