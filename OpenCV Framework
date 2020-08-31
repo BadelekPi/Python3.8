@@ -123,3 +123,21 @@ imgOutput = cv2.warpPerspective(img,matrix,(width,height))
 cv2.imshow("Image",img)
 cv2.imshow("Image Output",imgOutput)
 cv2.waitKey(0)
+
+
+
+
+
+#joining images together
+
+img = cv2.imread('Resources/Jula.jpg')
+
+#horizontal view
+hor = np.hstack((img,img))
+cv2.imshow("Horizontal",hor)
+
+#vertical view
+ver = np.vstack((img,img))
+cv2.imshow("Vertical",ver)
+
+cv2.waitKey(0)
