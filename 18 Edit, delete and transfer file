@@ -1,0 +1,39 @@
+import shutil, os
+#copy, transfer, change, edit names or deletes files
+
+os.chirdir('C:\\')
+
+#copy file spam to calalog delicious
+#new path is new copied file's path
+shutil.copy('C:\\spam.txt', 'C:\\delicious')
+
+#copy file but changing name to eggs2.txt
+shutil.copy('eggs.txt', 'C:\\delicious\\eggs2.txt')
+
+#copy file with a whole content inside the file (others files inside)
+os.chirdir('C:\\')
+shutil.copytree('C:\\bacon', 'C:\\bacon_backup')
+
+#transfer from source path file to new indicated path
+shutil.move('C:\\bacon.txt', 'C:\\eggs')
+
+#transfer and change name
+shutil.move('C\\bacon.txt', 'C:\\eggs\new_bacon.txt')
+
+#permanent delete files and catalogs
+import os
+for filename in os.listdir():
+    if filename.endswith(('.txt'):
+        os.unlink(filename)
+
+#safety delete files with send2trash module
+#to install this module should write pip install send2trash
+
+import send2trash
+baconFile = open('bacon.txt', 'a') #make a file
+baconFile.write('Bekon nie jest warzywem')
+baconFile.close()
+send2trash.send2trash('bacon.txt') #sending file to system's trash
+
+#read the ZIP file format
+import zipfile, os
