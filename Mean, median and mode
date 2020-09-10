@@ -1,0 +1,39 @@
+
+import math
+n = int(input())
+arr = list(map(int, input().split()))
+
+
+
+
+
+#mean calculating
+add = 0
+for i in range (0,n):
+    add+=arr[i]
+mean = add/n
+
+#median calculating
+arr.sort()
+median = 0
+if (n % 2) != 0:
+    absolute = math.floor(n/2)
+    median = arr[absolute]
+else:
+    up = arr[int(n/2)]
+    down = arr[int((n/2)-1)]
+    median = (up+down)/2
+
+#mode calculating
+counter = 0
+mode = arr[0]
+
+for i in arr:
+    curr_frequency = arr.count(i)
+    if(curr_frequency > counter):
+        counter = curr_frequency
+        mode = i
+
+print(mean)
+print(median)
+print(mode)
