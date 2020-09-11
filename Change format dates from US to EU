@@ -1,0 +1,32 @@
+#! python3
+#renameDates.py zmiana daty z formatu amerykanskiego na europejski
+import shutil, os, re
+
+datePattern = re.compile(r"""^(.*?)
+((0|1)>\d)- #jedna lub dwie cyfry miesiaca
+((0|1|2|3)?\d)- #jedna lub dwie cyfry okreslajace dzien
+((19|20)\d\d) #cztery cyfry okreslajace rok
+(.*?)$
+""",re.VERBOSE)
+
+#TODO iteracja przez pliki znajdujace sie w katalogu roboczym
+for amerFilename in os.listdir('.'):
+    mo = datePattern.search(amerFilename)
+#TODO pominiecie plikow bez daty
+    if mo == None:
+        continue
+#TODO pobranie poszczegolnych fragmentow nazw plikow
+    beforePart = mo.group(1)
+    monthPart = mo.group(2)
+    dayPart = mo.group(4)
+    yearPart = mo.group(6)
+    afterPart = mo.group(8)
+#TODO przygotowanie nazw pliku zawierajacej date w formacie europejskim
+    euroFilename= beforePart + dayPart + '-' + monthPart + '-' + yearPart + afterPart
+#TODO pobranie pelnych, bezwzglednych sciezke dostepu do pliku
+    absWorkingDir = os.path.abspath('.')
+    amerFilename = os.path.join(absWorkingDir, amerFilename)
+    euroFilename = os.path.join(absWorkingDir, euroFilename)
+#TODO zmiana nazwy plikow
+    print('Renaming "%s" to "%s"...' % (amerFilename, euroFilename))
+    shutil.move(amerFilename, euroFilename)
