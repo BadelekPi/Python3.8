@@ -43,6 +43,7 @@ else:
         down2 = newArrDown[int((len(newArrDown) / 2) - 1)]
         Q1 = (down1 + down2)/2
 
+#sprawdzenie czy wyniki są liczbami całkowitymi
 
 if isinstance(Q1, float):
     if (Q1).is_integer():
