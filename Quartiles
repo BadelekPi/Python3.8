@@ -1,0 +1,63 @@
+import math
+n = int(input())
+arr = list(map(int, input().split()))
+
+#median calculating
+arr.sort()
+median = 0
+#nieparzysty przypadek
+if (n % 2) != 0:
+    absolute = math.floor(n/2)
+    Q2 = arr[absolute]
+    #nowy wektor
+    newArrDown = arr[0:(absolute)]
+    newArrUp = arr[((absolute)+1):]
+    # górny zakres
+    up1 = newArrUp[int(len(newArrUp) / 2)]
+    up2 = newArrUp[int((len(newArrUp) / 2) - 1)]
+    Q3 = int((up1 + up2) / 2)
+    # dolny zakres
+    down1 = newArrDown[int(len(newArrDown) / 2)]
+    down2 = newArrDown[int((len(newArrDown) / 2) - 1)]
+    Q1 = int((down1 + down2) / 2)
+#parzysty przypadek
+else:
+    up = arr[int(n/2)]
+    down = arr[int((n/2)-1)]
+    Q2 = (up+down)/2
+    #nowy wektor
+    newArrDown = arr[0:int((n/2))]
+    newArrUp = arr[int((n/2)):]
+    if (len(newArrUp) % 2) != 0:
+        absolute1 = math.floor(len(newArrUp)/2)
+        Q3 = newArrUp[absolute1]
+        absolute2 = math.floor(len(newArrDown)/2)
+        Q1 = newArrDown[absolute2]
+    else:
+        #górny zakres
+        up1 = newArrUp[int(len(newArrUp) / 2)]
+        up2 = newArrUp[int((len(newArrUp) / 2) - 1)]
+        Q3 = (up1+up2)/2
+        #dolny zakres
+        down1 = newArrDown[int(len(newArrDown) / 2)]
+        down2 = newArrDown[int((len(newArrDown) / 2) - 1)]
+        Q1 = (down1 + down2)/2
+
+
+if isinstance(Q1, float):
+    if (Q1).is_integer():
+        print(int(Q1))
+else:
+    print(Q1)
+
+if isinstance(Q2, float):
+    if (Q2).is_integer():
+        print(int(Q2))
+else:
+    print(Q2)
+
+if isinstance(Q3, float):
+    if (Q3).is_integer():
+        print(int(Q3))
+else:
+    print(Q3)
