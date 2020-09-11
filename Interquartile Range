@@ -1,0 +1,61 @@
+import math
+from itertools import repeat
+n = int(input())
+arr = list(map(int, input().split()))
+freq = list(map(int, input().split()))
+newArr = []
+for i in range(0,n):
+    newArr.extend(repeat(arr[i],freq[i]))
+
+newArr.sort()
+
+#median calculating
+median = 0
+#nieparzysty przypadek
+if (len(newArr) % 2) != 0:
+    absolute = math.floor(len(newArr)/2)
+    Q2 = newArr[absolute]
+    #nowy wektor
+    newArrDown = newArr[0:(absolute)]
+    newArrUp = newArr[((absolute)+1):]
+    if (len(newArrDown) % 2) == 0:
+    # górny zakres
+         up1 = newArrUp[int(len(newArrUp) / 2)]
+         up2 = newArrUp[int((len(newArrUp) / 2) - 1)]
+         Q3 = (up1 + up2) / 2
+    # dolny zakres
+         down1 = newArrDown[int(len(newArrDown) / 2)]
+         down2 = newArrDown[int((len(newArrDown) / 2) - 1)]
+         Q1 = (down1 + down2) / 2
+    elif (len(newArrDown) % 2) != 0:
+         absolute1 = math.floor(len(newArrUp) / 2)
+         Q3 = newArrUp[absolute1]
+         absolute2 = math.floor(len(newArrDown) / 2)
+         Q1 = newArrDown[absolute2]
+#parzysty przypadek
+else:
+    up = newArr[int(len(newArr)/2)]
+    down = newArr[int((len(newArr)/2)-1)]
+    Q2 = (up+down)/2
+    #nowy wektor
+    newArrDown = newArr[0:int((len(newArr)/2))]
+    newArrUp = newArr[int((len(newArr)/2)):]
+    if (len(newArrUp) % 2) != 0:
+        absolute1 = math.floor(len(newArrUp)/2)
+        Q3 = newArrUp[absolute1]
+        absolute2 = math.floor(len(newArrDown)/2)
+        Q1 = newArrDown[absolute2]
+    else:
+        #górny zakres
+        up1 = newArrUp[int(len(newArrUp) / 2)]
+        up2 = newArrUp[int((len(newArrUp) / 2) - 1)]
+        Q3 = (up1+up2)/2
+        #dolny zakres
+        down1 = newArrDown[int(len(newArrDown) / 2)]
+        down2 = newArrDown[int((len(newArrDown) / 2) - 1)]
+        Q1 = (down1 + down2)/2
+
+
+
+
+print(float((Q3-Q1)))
