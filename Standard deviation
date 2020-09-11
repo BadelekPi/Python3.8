@@ -1,0 +1,16 @@
+import math
+n = int(input())
+arr = list(map(int, input().split()))
+distance = []
+#mean calculating
+add = 0
+for i in range (0,n):
+    add+=arr[i]
+mean = add/n
+
+for i in range (0,n):
+    distance.append((arr[i]-mean)**2)
+
+
+sum = sum(distance)
+print(round((math.sqrt(sum/n)),1))
