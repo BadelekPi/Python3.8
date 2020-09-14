@@ -1,0 +1,44 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+
+
+def Newton(n, k):
+    if k == 0 or k == n:
+          return(1)
+    else:
+          Wynik = 1
+          for i in range(1, k + 1):
+               Wynik = Wynik * (n - i + 1) / i
+          return Wynik
+
+
+
+pro = list(map(int, input().split()))
+#no more than 2 rejects
+reject = pro[0]/100
+noreject = 1-reject
+wynik1 = Newton(10,2)*(reject**2)*(noreject**8)+\
+         Newton(10,1)*(reject**1)*(noreject**9)+\
+         Newton(10,0)*(reject**0)*(noreject**10)
+
+wynik2 = Newton(10,2)*(reject**2)*(noreject**8)+\
+         Newton(10,3)*(reject**3)*(noreject**7)+\
+         Newton(10,4)*(reject**4)*(noreject**6)+\
+         Newton(10,5)*(reject**5)*(noreject**5)+\
+         Newton(10,6)*(reject**6)*(noreject**4)+\
+         Newton(10,7)*(reject**7)*(noreject**3)+\
+         Newton(10,8)*(reject**8)*(noreject**2)+\
+         Newton(10,9)*(reject**9)*(noreject**1)+\
+         Newton(10,10)*(reject**10)*(noreject**0)
+
+
+print("%0.3f" % wynik1)
+print("%0.3f" % wynik2)
