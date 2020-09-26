@@ -17,3 +17,26 @@ for sym, w, h, in (('**',4,4),('0',20,0),('x',1,3),('ZZ',3,3)):
         boxPrint(sym,w,h)
     except Exception as err:
         print('Nastąpiło zgłoszenie wyjątku: '+str(err))
+
+
+
+#debbuging with logging module
+
+#logging module
+#factorial example
+
+import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s- %(message)s')
+logging.debug('Początek programu')
+
+def factorial(n):
+    logging.debug('Początek wywoływania funkcji factorial(%s%%)' %(n))
+    total=1
+    for i in range(1,n+1):
+        total *= i
+        logging.debug('i wynosi '+ str(i) + ', wartosc calkowita wynosi ' + str(total))
+        logging.debug('Koniec wywolywania funkcji (%s%%) ' %(n))
+    return total
+
+logging.debug('Koniec programu')
+logging.debug(factorial(5))
