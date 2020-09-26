@@ -1,0 +1,19 @@
+#dispay exceptions if values are wrong
+
+def boxPrint(symbol, width, height):
+    if len(symbol) != 1:
+        raise Exception('Symbol musi byc pojedynczym znakiem')
+    if width <= 2:
+        raise Exception('Szerokosc musi byc wieksza od 2')
+    if height <= 2:
+        raise Exception('Wysokosc musi miec wartosc wieksza od 2')
+    print(symbol * width)
+    for i in range(height-2):
+        print(symbol + (' ' * (width - 2)) + symbol)
+    print(symbol * width)
+
+for sym, w, h, in (('**',4,4),('0',20,0),('x',1,3),('ZZ',3,3)):
+    try:
+        boxPrint(sym,w,h)
+    except Exception as err:
+        print('Nastąpiło zgłoszenie wyjątku: '+str(err))
