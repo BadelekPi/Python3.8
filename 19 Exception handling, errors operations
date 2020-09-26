@@ -40,3 +40,6 @@ def factorial(n):
 
 logging.debug('Koniec programu')
 logging.debug(factorial(5))
+
+#deactivate logging verbs
+logging.disable(logging.CRITICAL)
