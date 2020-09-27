@@ -1,0 +1,12 @@
+#open address in google maps
+
+import webbrowser,sys
+
+if len(sys.argv) > 1:
+    #pobranie adresu z wiersza poleceń
+    address = ' '.join(sys.argv[1:])
+else:
+    #pobranie adresu schowka
+    address = pyperclip.paste()
+
+webbrowser.open('hhtps://www.google.pl/maps/place/' + address)
