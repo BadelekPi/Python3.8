@@ -10,3 +10,23 @@ else:
     address = pyperclip.paste()
 
 webbrowser.open('hhtps://www.google.pl/maps/place/' + address)
+
+
+
+import requests
+
+#requests.get() -download string with URL address
+
+res = requests.get('http://www.gutenberg.org/files/27062/27062-0.txt')
+type(res)
+res.status_code = requests.codes.ok
+len(res.text)
+print(res.text[:251])
+
+#check if website's address is correct
+
+import requests
+
+res = requests.get('hhtp://inventwithpython.com/stronanieistnieje')
+res.raise_for_status()
+
