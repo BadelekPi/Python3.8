@@ -30,3 +30,14 @@ import requests
 res = requests.get('hhtp://inventwithpython.com/stronanieistnieje')
 res.raise_for_status()
 
+
+
+#download content of the website to file on hard disk
+import requests
+res = requests.get('http://www.gutenberg.org/files/27062/27062-0.txt')
+res.raise_for_status()
+playFile = open('Romeo-JUlia.txt','wb') #file in binary format
+for chunk in res.iter_content(100000):
+    playFile.write(chunk)
+
+playFile.close()
