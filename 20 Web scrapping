@@ -53,3 +53,21 @@ noStarchSoup = bs4.BeautifulSoup(res.text)
 type(noStarchSoup)
 
 
+
+
+#! python3
+#otwieranie kilku wynikow wyszukiwania google
+
+import requests, sys, webbrowser, bs4
+
+print('Wyszukiwanie...')
+res = requests.get('http://google.pl/search?g='+' '.join(sys.argv[1:]))
+res.raise_for_status()
+
+#TODO: POBRANIE ŁACZY Z 1' WYNIKAMI
+soup = bs4.BeautifulSoup(res.text)
+#TODO: OTWORZENIE KARTY PRZEGLARDKI WWW DLA KAZDEGO WYSZUKANIA
+linkElems = soup.select('.r a')
+numOpen = min(5, len(linkElems))
+for i in range(numOpen):
+    webbrowser.open('http://google.pl' + linkElems[i].get('href'))
