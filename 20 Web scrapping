@@ -71,3 +71,42 @@ linkElems = soup.select('.r a')
 numOpen = min(5, len(linkElems))
 for i in range(numOpen):
     webbrowser.open('http://google.pl' + linkElems[i].get('href'))
+
+
+
+
+
+
+#! python3
+#pobieranie komiksow ze strony
+
+import requests, os, bs4
+
+url = 'http://xkcd.com'  #adres URL poczatkowy
+os.makedirs('xkcd', exist_ok=True) #przechowywanie komiksow w katalogu ./xkcd
+while not url.endswith('#'):
+
+    #TODO: pobranie strony
+    print('Pobieranie strony %s...' %url)
+    res = requests.get(url)
+    res.raise_for_status()
+    soup = bs4.BeautifulSoup(res.text)
+    #TODO: ustalenie adresu URL pliku obrazu komiksu
+    comicElem = soup.select('#comic img')
+    if comicElem == []:
+        print('Nie udalo sie odnalezc pliku obrazu')
+    else:
+        comicUrl = 'http:' + comicElem[0].get('src')
+    #TODO: pobranie obrazu
+        print('Pobieranie obrazu %s...' % (comicUrl))
+        res = requests.get(comicUrl)
+        res.raise_for_status()
+    #TODO: zapis obrazu w katalogu
+        imageFile = open(os.path.join('xkcd', os.path.basename(comicUrl)), 'wb')
+        for chunk in res.iter_content(100000):
+            imageFile.write(chunk)
+        imageFile.close()
+    #TODO: pobranie adresu URL w przycisku PREV
+    prevLink = soup.select('a[rel="prev"]')[0]
+    url = 'http://xkcd.com' + prevLink.get('href')
+print('Gotowe')
