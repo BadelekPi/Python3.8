@@ -1,0 +1,28 @@
+import threading, time
+print('Uruchomienie programu')
+
+def takeANap():
+    time.sleep(5)
+    print('Obudz sie!')
+
+threadObj = threading.Thread(target=takeANap)
+#zdefiniowanie funkcji jako targetu dla nowego wątku
+threadObj.start()
+
+print('Zakoncz')
+
+
+
+#trzy zwykle argumenty i slowo kluczowe jako slownik
+threadObj2 = threading.Thread(target=print, args=['Koty','Psy'],kwargs={'sep':' & '})
+threadObj2.start()
+
+#funkcja poll() i wait()
+#poll - zapytanie czy proces zostal zamkniety
+#wait - czekanie az proces zostanie zamkniety
+import subprocess
+#kalkulator.exe
+calcProc = subprocess.Popen('c:\\Windows\\System32\\calc.exe')
+calcProc.poll() == None
+calcProc.wait()
+calcProc.poll()
