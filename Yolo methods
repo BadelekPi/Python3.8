@@ -1,0 +1,84 @@
+import cv2
+import numpy as np
+
+#creating while loop to get frames of our webcam
+cap = cv2.VideoCapture(0)
+#declare the parameter, width and height
+whT = 320 #Target
+confTreshold = 0.5
+nmsThreshold = 0.3
+
+#collect the name of our classes
+#import the names and will store it in our list
+classesFile = 'coco.names'
+classNames = []
+#rt - read it and this is a text file
+with open(classesFile,'rt') as f:
+    classNames = f.read().rstrip('\n').split('\n')
+print(classNames)
+print(len(classNames))
+
+#creating our network
+modelConfiguration = 'yolov3.cfg'
+modelWeights = 'yolov3.weights'
+
+net = cv2.dnn.readNetFromDarknet(modelConfiguration,modelWeights)
+net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
+net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
+
+
+def findObjects(outputs,img):
+    hT, wT, cT = img.shape
+    bbox = []
+    classIds = []
+    confs = []
+
+    for output in outputs:
+        for det in output:
+            scores = det[5:]
+            classId = np.argmax(scores)
+            confidence = scores[classId]
+            if confidence > confTreshold:
+                w,h = int(det[2]*wT), int(det[3]*hT)
+                x,y = int((det[0]*wT)-w/2), int((det[1]*hT)-h/2)
+                bbox.append([x,y,w,h])
+                classIds.append(classId)
+                confs.append(float(confidence))
+        indices = cv2.dnn.NMSBoxes(bbox,confs,confTreshold,nmsThreshold)
+
+        for i in indices:
+            i = i[0]
+            box = bbox[i]
+            x,y,w,h = box[0],box[1],box[2],box[3]
+            cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,255),2)
+            cv2.putText(img,f'{classNames[classIds[i]].upper()} {int(confs[i]*100)}%',
+                        (x,y-10),cv2.FONT_HERSHEY_SIMPLEX,0.6,(255,0,255),2)
+
+###############################################################################################
+while True:
+    success, img = cap.read()
+    #convert to blob format because its format that network understand
+    blob = cv2.dnn.blobFromImage(img,1/255,(whT,whT),[0,0,0],1,crop=False)
+    net.setInput(blob)
+
+    layerNames = net.getLayerNames()
+    #print(layerNames)
+    outputNames = [layerNames[i[0]-1] for i in net.getUnconnectedOutLayers()]
+    #print(outputNames)
+    #print(net.getUnconnectedOutLayers())
+
+    outputs = net.forward(outputNames)
+    #print(outputs[0].shape)
+    #print(outputs[1].shape)
+    #print(outputs[2].shape)
+
+
+    #run the function
+    findObjects(outputs,img)
+
+
+    #it will give us our image and it will tell us whether it was successful to retrive or not
+    cv2.imshow('Image', img)
+    #image that we want to display
+    #adding delay for 1 ms
+    cv2.waitKey(1)
