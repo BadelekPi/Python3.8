@@ -14,7 +14,7 @@ print(hello())
 def argu_func(greeting, name = 'You'):
     return '{}, {} function.'.format(name, greeting)
 
-print(argu_func('dupa', name = 'Pioter'))
+print(argu_func('a', name = 'Pioter'))
 
 '''args is actually a tuple with all of our positional arguments, kwargs are a dictionary with all of our keyword values'''
 def student_info(*args, **kwargs):
