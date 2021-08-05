@@ -42,3 +42,33 @@ watek1.start()
 watek2.start()
 watek2.join()
 print('konczymy ta impreze')
+
+----------------------------------------------------------------------------------------------------------------------
+
+import threading
+import time
+
+class Thread_Meas(threading.Thread):
+    def __init__(self, dict = {}, powtorzenia = None, opoznienie = None):
+        threading.Thread.__init__(self)
+        self.dict = dict
+        self.powtorzenia = powtorzenia
+        self.opoznienie = opoznienie
+
+    def run(self):
+        for i in range(self.powtorzenia):
+            self.uptake_meas()
+            time.sleep(self.opoznienie)
+
+
+    def uptake_meas(self):
+        self.dict['remaining_time'] = time.ctime(time.time())
+        self.dict['ramp_time'] = 10
+        # self.remaining_time = 1
+        # self.ramp_time = 10
+        return print(self.dict)
+
+
+watek1 = Thread_Meas(dict={}, powtorzenia=3, opoznienie=0.5)
+watek1.start()
+watek1.join()
