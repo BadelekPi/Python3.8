@@ -1,0 +1,30 @@
+import threading
+import time
+import pandas as pd
+
+
+class Thread_Meas(threading.Thread):
+    df_3 = pd.DataFrame([])
+    df_1 = pd.DataFrame({"uout":[1,2,3,4]})
+    num_of_meas = df_1.shape[0]
+    time_delta = (num_of_meas / 12) * 3
+    delta = 0
+    index_list =[]
+
+    for i in range(num_of_meas):
+        index_list.append(delta)
+        delta += time_delta
+
+    df_1.loc[:, 'timestamp'] = index_list
+
+    df_1 = df_1.set_index('timestamp')
+
+    df_2 = pd.DataFrame({"timestamp":[0.0, 0.5, 1.0, 1.5, 2.0, 2.5],"uout":[4,5,6,7,8,9]})
+
+    df_2 = df_2.set_index('timestamp')
+
+    print(df_1)
+    print(df_2)
+
+    df3 = pd.merge(df_1, df_2, left_index=True, right_index=True)
+    print(df3)
