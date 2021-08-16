@@ -28,3 +28,12 @@ class Thread_Meas(threading.Thread):
 
     df3 = pd.merge(df_1, df_2, left_index=True, right_index=True)
     print(df3)
+    
+    
+    # concat 2 dataframes with NAN values
+    
+    result = pd.concat([df_1, df_2], axis=1)
+    print(result)
+
+    result.interpolate(method='linear').plot()
+    plt.show()
