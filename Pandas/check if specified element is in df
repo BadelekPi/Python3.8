@@ -1,0 +1,9 @@
+import pandas as pd
+
+data = {'code': ['61605', '61606', '61606', '1234', '4321'],
+        'description': ['internal use only','internal use only','too low water flow', 'too low water flow', 'test_version']}
+
+df = pd.DataFrame.from_dict(data)
+
+if True in df.code.isin(['61605']):
+        print('123')
