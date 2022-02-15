@@ -1,0 +1,25 @@
+# List comprehension
+lst = [i*i for i in range(10)]
+print(lst)
+
+lst = [i*i for i in range(10) if i*i % 2 == 0]
+print(lst)
+
+# Słowniki
+x = {'karol':5, 'renata':9}
+print(x)
+print(x['karol'])
+del x['karol']
+
+for e in x.keys():
+    print(f'Slownik: {e} = {x[e]}')
+
+for k, v in x.items():
+    print(f'Slownik: {k} {v}')
+
+x = {i: i * i for i in range(10)}
+print(x)
+
+from collections import defaultdict
+x = defaultdict(int)
+print(x['none']) # print default value without error
