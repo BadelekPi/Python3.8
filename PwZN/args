@@ -1,0 +1,12 @@
+import argparse
+
+parser = argparse.ArgumentParser(description="Opis")
+parser.add_argument('file', help= 'name of file')
+parser.add_argument('-n', '--number', help='some number', type=int, default = 0)
+parser.add_argument('-bpar', '--bpar', help='some flag', action='store_true') # jezeli podaje sie --bpar to jest ustawiona flaga
+
+args = parser.parse_args()
+
+print(f'File name: {args.file}')
+print(f'Number: {args.number}')
+print(f'{args.bpar}')
