@@ -1,1 +1,4 @@
 n_list = [x for x in range(20) if x%2 ==0]
+
+
+obj = ['Even' if i%2==0 else 'Odd' for i in range(10)] # Check if number in range are even or odds
