@@ -1,0 +1,2 @@
+matrix = [[1,2,3,4], [4,5,6,8]]
+transposed_matrix = [[(row[i]) for row in matrix] for i in range(4)] # second for conditional executed before others
