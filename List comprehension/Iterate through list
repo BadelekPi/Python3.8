@@ -1,0 +1,9 @@
+fruits=["Banana", "Apple", "Mango", "Pear"]
+newlist=[x for x in fruits if "A" in x]
+
+fruits=["Banana", "Apple", "Mango", "Pear"]  
+newlist=['newvalue' for x in fruits] # set all values in the new list
+
+fruits=["Banana", "Apple", "Mango", "Pear"]
+newlist=[letter for letter in str(fruits)] # print each letters in list's elements 
+
