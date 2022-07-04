@@ -2,3 +2,34 @@ def myfunc(n):
     return lambda a: a*n
 multiplier = myfunc(3)
 print(multiplier(11))
+
+
+#print((lambda x: x+1)(2))
+
+# full_name = lambda first, last: f'Full name: {first.title()} {last.title()}'
+# print(full_name('guido','van rossum'))
+
+# lambda x, y: x + y
+
+# _(1, 2)
+
+# Immediately Invoked Function Expression 'iffy':
+# print((lambda x,y:x+y)(2,3))
+
+# Example lambda function in higher-order function
+# high_ord_func = lambda x, func: x + func(x)
+# high_ord_func(2, lambda x: x * x)
+
+# def full_name(first: str, last: str) -> str:
+#     return f'{first.title()} {last.title()}'
+# print(full_name('piotr','badelek'))
+
+# print((lambda x: x * x)(3))
+
+# (lambda x, y, z: x + y + z)(1, 2, 3)
+
+# print((lambda *args: sum(args))(1,2,3))
+
+# print((lambda **kwargs: sum(kwargs.values()))(one=3,two=5,three=6))
+
+# print((lambda x, *, y=0, z=0: x + y + z)(1, y=2, z=3))
